@@ -24,9 +24,9 @@ const products = [
       shipping: 'Free shipping on orders over $100. Ships within 1-2 business days.',
     },
     images: [
-      '/images/product_tee_1776822434586.png',
-      '/images/product_tee_1776822434586.png',
-      '/images/product_tee_1776822434586.png',
+      import.meta.env.BASE_URL + 'images/product_tee_1776822434586.png',
+      import.meta.env.BASE_URL + 'images/product_tee_1776822434586.png',
+      import.meta.env.BASE_URL + 'images/product_tee_1776822434586.png',
     ],
   },
   {
@@ -51,9 +51,9 @@ const products = [
       shipping: 'Free shipping on orders over $100. Ships within 1-2 business days.',
     },
     images: [
-      '/images/product_cargo_1776822456572.png',
-      '/images/product_cargo_1776822456572.png',
-      '/images/product_cargo_1776822456572.png',
+      import.meta.env.BASE_URL + 'images/product_cargo_1776822456572.png',
+      import.meta.env.BASE_URL + 'images/product_cargo_1776822456572.png',
+      import.meta.env.BASE_URL + 'images/product_cargo_1776822456572.png',
     ],
   },
   {
@@ -77,9 +77,9 @@ const products = [
       shipping: 'Free shipping on orders over $100. Ships within 1-2 business days.',
     },
     images: [
-      '/images/product_bomber_1776822515863.png',
-      '/images/product_bomber_1776822515863.png',
-      '/images/product_bomber_1776822515863.png',
+      import.meta.env.BASE_URL + 'images/product_bomber_1776822515863.png',
+      import.meta.env.BASE_URL + 'images/product_bomber_1776822515863.png',
+      import.meta.env.BASE_URL + 'images/product_bomber_1776822515863.png',
     ],
   },
   {
@@ -104,9 +104,9 @@ const products = [
       shipping: 'Free shipping on orders over $100. Ships within 1-2 business days.',
     },
     images: [
-      '/images/product_hoodie_1776822545195.png',
-      '/images/product_hoodie_1776822545195.png',
-      '/images/product_hoodie_1776822545195.png',
+      import.meta.env.BASE_URL + 'images/product_hoodie_1776822545195.png',
+      import.meta.env.BASE_URL + 'images/product_hoodie_1776822545195.png',
+      import.meta.env.BASE_URL + 'images/product_hoodie_1776822545195.png',
     ],
   },
   {
@@ -131,9 +131,9 @@ const products = [
       shipping: 'Free shipping on orders over $100. Ships within 1-2 business days.',
     },
     images: [
-      '/images/product_tee_1776822434586.png',
-      '/images/product_tee_1776822434586.png',
-      '/images/product_tee_1776822434586.png',
+      import.meta.env.BASE_URL + 'images/product_tee_1776822434586.png',
+      import.meta.env.BASE_URL + 'images/product_tee_1776822434586.png',
+      import.meta.env.BASE_URL + 'images/product_tee_1776822434586.png',
     ],
   },
   {
@@ -157,9 +157,9 @@ const products = [
       shipping: 'Free shipping on orders over $100. Ships within 1-2 business days.',
     },
     images: [
-      '/images/product_cargo_1776822456572.png',
-      '/images/product_cargo_1776822456572.png',
-      '/images/product_cargo_1776822456572.png',
+      import.meta.env.BASE_URL + 'images/product_cargo_1776822456572.png',
+      import.meta.env.BASE_URL + 'images/product_cargo_1776822456572.png',
+      import.meta.env.BASE_URL + 'images/product_cargo_1776822456572.png',
     ],
   },
   {
@@ -184,9 +184,9 @@ const products = [
       shipping: 'Free shipping on orders over $100. Ships within 1-2 business days.',
     },
     images: [
-      '/images/product_bomber_1776822515863.png',
-      '/images/product_bomber_1776822515863.png',
-      '/images/product_bomber_1776822515863.png',
+      import.meta.env.BASE_URL + 'images/product_bomber_1776822515863.png',
+      import.meta.env.BASE_URL + 'images/product_bomber_1776822515863.png',
+      import.meta.env.BASE_URL + 'images/product_bomber_1776822515863.png',
     ],
   },
   {
@@ -211,9 +211,9 @@ const products = [
       shipping: 'Free shipping on orders over $100. Ships within 1-2 business days.',
     },
     images: [
-      '/images/product_hoodie_1776822545195.png',
-      '/images/product_hoodie_1776822545195.png',
-      '/images/product_hoodie_1776822545195.png',
+      import.meta.env.BASE_URL + 'images/product_hoodie_1776822545195.png',
+      import.meta.env.BASE_URL + 'images/product_hoodie_1776822545195.png',
+      import.meta.env.BASE_URL + 'images/product_hoodie_1776822545195.png',
     ],
   },
   {
@@ -238,9 +238,9 @@ const products = [
       shipping: 'Free shipping on orders over $100. Ships within 1-2 business days.',
     },
     images: [
-      '/images/product_tee_1776822434586.png',
-      '/images/product_tee_1776822434586.png',
-      '/images/product_tee_1776822434586.png',
+      import.meta.env.BASE_URL + 'images/product_tee_1776822434586.png',
+      import.meta.env.BASE_URL + 'images/product_tee_1776822434586.png',
+      import.meta.env.BASE_URL + 'images/product_tee_1776822434586.png',
     ],
   },
   {
@@ -264,9 +264,9 @@ const products = [
       shipping: 'Free shipping on orders over $100. Ships within 1-2 business days.',
     },
     images: [
-      '/images/product_cargo_1776822456572.png',
-      '/images/product_cargo_1776822456572.png',
-      '/images/product_cargo_1776822456572.png',
+      import.meta.env.BASE_URL + 'images/product_cargo_1776822456572.png',
+      import.meta.env.BASE_URL + 'images/product_cargo_1776822456572.png',
+      import.meta.env.BASE_URL + 'images/product_cargo_1776822456572.png',
     ],
   },
   {
@@ -290,9 +290,9 @@ const products = [
       shipping: 'Free shipping on orders over $100. Ships within 1-2 business days.',
     },
     images: [
-      '/images/product_bomber_1776822515863.png',
-      '/images/product_bomber_1776822515863.png',
-      '/images/product_bomber_1776822515863.png',
+      import.meta.env.BASE_URL + 'images/product_bomber_1776822515863.png',
+      import.meta.env.BASE_URL + 'images/product_bomber_1776822515863.png',
+      import.meta.env.BASE_URL + 'images/product_bomber_1776822515863.png',
     ],
   },
   {
@@ -316,9 +316,9 @@ const products = [
       shipping: 'Free shipping on orders over $100. Ships within 1-2 business days.',
     },
     images: [
-      '/images/product_hoodie_1776822545195.png',
-      '/images/product_hoodie_1776822545195.png',
-      '/images/product_hoodie_1776822545195.png',
+      import.meta.env.BASE_URL + 'images/product_hoodie_1776822545195.png',
+      import.meta.env.BASE_URL + 'images/product_hoodie_1776822545195.png',
+      import.meta.env.BASE_URL + 'images/product_hoodie_1776822545195.png',
     ],
   },
 ]
@@ -328,17 +328,17 @@ export const collections = [
   {
     title: 'Essentials',
     description: 'Timeless basics built to last',
-    image: '/images/product_tee_1776822434586.png',
+    image: import.meta.env.BASE_URL + 'images/product_tee_1776822434586.png',
   },
   {
     title: 'Streetwear',
     description: 'Bold statements for the urban explorer',
-    image: '/images/collection_streetwear_1776822603980.png',
+    image: import.meta.env.BASE_URL + 'images/collection_streetwear_1776822603980.png',
   },
   {
     title: 'Premium',
     description: 'Luxury fabrics, uncompromising craft',
-    image: '/images/product_bomber_1776822515863.png',
+    image: import.meta.env.BASE_URL + 'images/product_bomber_1776822515863.png',
   },
 ]
 

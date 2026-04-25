@@ -27,7 +27,7 @@ export default function About() {
       <section className="relative h-[60vh] md:h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/collection_streetwear_1776822603980.png"
+            src={`${import.meta.env.BASE_URL}images/collection_streetwear_1776822603980.png`}
             alt="Behind the scenes at Stelo"
             className="w-full h-full object-cover"
           />
@@ -78,7 +78,7 @@ export default function About() {
             <AnimatedSection delay={200}>
               <div className="overflow-hidden aspect-[4/5]">
                 <img
-                  src="/images/hero_model_1776822163943.png"
+                  src={`${import.meta.env.BASE_URL}images/hero_model_1776822163943.png`}
                   alt="Stelo founder"
                   className="w-full h-full object-cover"
                 />

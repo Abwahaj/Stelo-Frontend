@@ -17,7 +17,7 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
-            src="/images/hero_model_1776822163943.png"
+            src={`${import.meta.env.BASE_URL}images/hero_model_1776822163943.png`}
             alt="Stelo fashion hero"
             className={`w-full h-full object-cover object-top transition-transform duration-[2s] ease-out ${
               heroLoaded ? 'scale-100' : 'scale-110'
@@ -202,7 +202,7 @@ export default function Home() {
             <AnimatedSection>
               <div className="overflow-hidden aspect-[4/5]">
                 <img
-                  src="/images/collection_streetwear_1776822603980.png"
+                  src={`${import.meta.env.BASE_URL}images/collection_streetwear_1776822603980.png`}
                   alt="Stelo craftsmanship"
                   className="w-full h-full object-cover"
                 />
