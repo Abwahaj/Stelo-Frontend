@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Search, ShoppingBag, Menu, X } from 'lucide-react'
+import { useCart } from '../context/CartContext'
+import SearchOverlay from './SearchOverlay'
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
   const location = useLocation()
+  const { openCart, totalItems } = useCart()
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50)
@@ -74,6 +78,7 @@ export default function Navbar() {
             {/* Right Icons */}
             <div className="flex items-center gap-5">
               <button
+                onClick={() => setIsSearchOpen(true)}
                 className="transition-all duration-300 hover:opacity-60"
                 style={{ color: isScrolled || !isHome ? '#0A0A0A' : '#FFFFFF' }}
                 aria-label="Search"
@@ -81,14 +86,17 @@ export default function Navbar() {
                 <Search size={18} strokeWidth={1.5} />
               </button>
               <button
+                onClick={openCart}
                 className="relative transition-all duration-300 hover:opacity-60"
                 style={{ color: isScrolled || !isHome ? '#0A0A0A' : '#FFFFFF' }}
                 aria-label="Shopping bag"
               >
                 <ShoppingBag size={18} strokeWidth={1.5} />
-                <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-primary text-white text-[9px] font-bold rounded-full flex items-center justify-center">
-                  2
-                </span>
+                {totalItems > 0 && (
+                  <span className="absolute -top-1.5 -right-1.5 w-4 h-4 bg-primary text-white text-[9px] font-bold rounded-full flex items-center justify-center">
+                    {totalItems}
+                  </span>
+                )}
               </button>
 
               {/* Mobile Menu Toggle */}
@@ -129,6 +137,9 @@ export default function Navbar() {
           ))}
         </div>
       </div>
+
+      {/* Search Overlay */}
+      <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   )
 }

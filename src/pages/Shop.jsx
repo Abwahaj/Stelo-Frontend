@@ -1,34 +1,11 @@
-import { useState, useRef, useEffect } from 'react'
-import { SlidersHorizontal, Grid3X3, LayoutGrid, X } from 'lucide-react'
-
-const allProducts = [
-  { id: 1, name: 'Essential Tee', price: 49, category: 'Tops', color: 'Black', image: '/images/product_tee_1776822434586.png', tag: 'Best Seller' },
-  { id: 2, name: 'Cargo Pants', price: 89, category: 'Bottoms', color: 'Olive', image: '/images/product_cargo_1776822456572.png', tag: 'New' },
-  { id: 3, name: 'Bomber Jacket', price: 149, category: 'Outerwear', color: 'Black', image: '/images/product_bomber_1776822515863.png', tag: 'Limited' },
-  { id: 4, name: 'Signature Hoodie', price: 79, category: 'Tops', color: 'Orange', image: '/images/product_hoodie_1776822545195.png', tag: 'Popular' },
-  { id: 5, name: 'Relaxed Tee', price: 45, category: 'Tops', color: 'White', image: '/images/product_tee_1776822434586.png' },
-  { id: 6, name: 'Slim Joggers', price: 69, category: 'Bottoms', color: 'Charcoal', image: '/images/product_cargo_1776822456572.png' },
-  { id: 7, name: 'Utility Overshirt', price: 119, category: 'Outerwear', color: 'Black', image: '/images/product_bomber_1776822515863.png', tag: 'New' },
-  { id: 8, name: 'Crewneck Sweater', price: 89, category: 'Tops', color: 'Cream', image: '/images/product_hoodie_1776822545195.png' },
-  { id: 9, name: 'Structured Cap', price: 35, category: 'Accessories', color: 'Black', image: '/images/product_tee_1776822434586.png' },
-]
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { SlidersHorizontal, Grid3X3, LayoutGrid } from 'lucide-react'
+import products from '../data/products'
+import { useInView } from '../hooks/useInView'
 
 const categories = ['All', 'Tops', 'Bottoms', 'Outerwear', 'Accessories']
 const sortOptions = ['Featured', 'Price: Low to High', 'Price: High to Low', 'Newest']
-
-function useInView(threshold = 0.1) {
-  const ref = useRef(null)
-  const [isVisible, setIsVisible] = useState(false)
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsVisible(true) },
-      { threshold }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [threshold])
-  return [ref, isVisible]
-}
 
 export default function Shop() {
   const [activeCategory, setActiveCategory] = useState('All')
@@ -36,7 +13,7 @@ export default function Shop() {
   const [showFilters, setShowFilters] = useState(false)
   const [gridCols, setGridCols] = useState(3)
 
-  const filtered = allProducts
+  const filtered = products
     .filter(p => activeCategory === 'All' || p.category === activeCategory)
     .sort((a, b) => {
       if (sortBy === 'Price: Low to High') return a.price - b.price
@@ -153,16 +130,17 @@ function ProductCard({ product, delay }) {
   const [ref, isVisible] = useInView()
 
   return (
-    <div
+    <Link
+      to={`/shop/${product.slug}`}
       ref={ref}
-      className={`group cursor-pointer transition-all duration-700 ease-out ${
+      className={`group block transition-all duration-700 ease-out ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
       }`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="relative overflow-hidden bg-surface-dim mb-4 aspect-[3/4]">
         <img
-          src={product.image}
+          src={product.images[0]}
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
@@ -172,18 +150,18 @@ function ProductCard({ product, delay }) {
           </span>
         )}
         <div className="absolute bottom-0 left-0 right-0 flex gap-2 p-3 translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-          <button className="flex-1 bg-secondary text-white text-[10px] font-semibold tracking-[0.15em] uppercase py-3 hover:bg-primary transition-colors">
-            Add to Cart
-          </button>
+          <span className="flex-1 bg-secondary text-white text-[10px] font-semibold tracking-[0.15em] uppercase py-3 text-center">
+            View Product
+          </span>
         </div>
       </div>
       <div className="flex items-start justify-between">
         <div>
-          <h3 className="text-sm font-semibold mb-0.5">{product.name}</h3>
+          <h3 className="text-sm font-semibold mb-0.5 group-hover:text-primary transition-colors">{product.name}</h3>
           <p className="text-[11px] text-muted/60 uppercase tracking-wider">{product.category}</p>
         </div>
         <p className="text-sm font-bold">${product.price}</p>
       </div>
-    </div>
+    </Link>
   )
 }

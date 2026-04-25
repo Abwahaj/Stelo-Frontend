@@ -1,60 +1,10 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowRight, ArrowUpRight, Star } from 'lucide-react'
+import { getFeaturedProducts, collections } from '../data/products'
+import { AnimatedSection } from '../hooks/useInView'
 
-const products = [
-  { id: 1, name: 'Essential Tee', price: 49, image: '/images/product_tee_1776822434586.png', tag: 'Best Seller' },
-  { id: 2, name: 'Cargo Pants', price: 89, image: '/images/product_cargo_1776822456572.png', tag: 'New' },
-  { id: 3, name: 'Bomber Jacket', price: 149, image: '/images/product_bomber_1776822515863.png', tag: 'Limited' },
-  { id: 4, name: 'Signature Hoodie', price: 79, image: '/images/product_hoodie_1776822545195.png', tag: 'Popular' },
-]
-
-const collections = [
-  {
-    title: 'Essentials',
-    description: 'Timeless basics built to last',
-    image: '/images/product_tee_1776822434586.png',
-  },
-  {
-    title: 'Streetwear',
-    description: 'Bold statements for the urban explorer',
-    image: '/images/collection_streetwear_1776822603980.png',
-  },
-  {
-    title: 'Premium',
-    description: 'Luxury fabrics, uncompromising craft',
-    image: '/images/product_bomber_1776822515863.png',
-  },
-]
-
-function useInView(threshold = 0.15) {
-  const ref = useRef(null)
-  const [isVisible, setIsVisible] = useState(false)
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsVisible(true) },
-      { threshold }
-    )
-    if (ref.current) observer.observe(ref.current)
-    return () => observer.disconnect()
-  }, [threshold])
-  return [ref, isVisible]
-}
-
-function AnimatedSection({ children, className = '', delay = 0 }) {
-  const [ref, isVisible] = useInView()
-  return (
-    <div
-      ref={ref}
-      className={`transition-all duration-1000 ease-out ${className} ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-      }`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  )
-}
+const products = getFeaturedProducts(4)
 
 export default function Home() {
   const [heroLoaded, setHeroLoaded] = useState(false)
@@ -220,10 +170,10 @@ export default function Home() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {products.map((product, i) => (
               <AnimatedSection key={product.id} delay={i * 100}>
-                <div className="group cursor-pointer">
+                <Link to={`/shop/${product.slug}`} className="group block">
                   <div className="relative overflow-hidden bg-surface-card mb-4 aspect-[3/4]">
                     <img
-                      src={product.image}
+                      src={product.images[0]}
                       alt={product.name}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -232,13 +182,13 @@ export default function Home() {
                         {product.tag}
                       </span>
                     )}
-                    <button className="absolute bottom-0 left-0 right-0 bg-secondary text-white text-[11px] font-semibold tracking-[0.15em] uppercase py-3 translate-y-full transition-transform duration-300 group-hover:translate-y-0">
-                      Quick Add
-                    </button>
+                    <div className="absolute bottom-0 left-0 right-0 bg-secondary text-white text-[11px] font-semibold tracking-[0.15em] uppercase py-3 text-center translate-y-full transition-transform duration-300 group-hover:translate-y-0">
+                      View Product
+                    </div>
                   </div>
-                  <h3 className="text-sm font-semibold mb-1">{product.name}</h3>
+                  <h3 className="text-sm font-semibold mb-1 group-hover:text-primary transition-colors">{product.name}</h3>
                   <p className="text-sm text-muted">${product.price}</p>
-                </div>
+                </Link>
               </AnimatedSection>
             ))}
           </div>
